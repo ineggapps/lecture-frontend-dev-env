@@ -13,10 +13,11 @@ module.exports = {
     rules: [
       {
         test: /\.(png|jpg|gif|svg)$/, // .png 확장자로 마치는 모든 파일
-        loader: "file-loader",
+        loader: "url-loader",
         options: {
           publicPath: "./dist/", // prefix를 아웃풋 경로로 지정
-          name: "[name].[ext]?[hash]" // 파일명 형식
+          name: "[name].[ext]?[hash]", // 파일명 형식
+          limit: 10000 // 5kb 미만 파일만 data url로 처리
         }
       },
       {
